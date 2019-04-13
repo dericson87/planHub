@@ -28,7 +28,7 @@
 .topheader-create, .topheader-dash {
   font-family: 'Gloria Hallelujah', cursive;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 24px;
   text-align: center;
   border-radius: 15px;
   margin: 10px;
@@ -134,6 +134,20 @@
   text-align: center;
 }
 
+.rewards-button {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: normal;
+  font-size: 18px;
+
+  border-radius: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #bbdefb;
+  border: solid;
+  border-width: 1px;
+  text-align: center;
+}
+
 #container-button {
   text-align: center;
 }
@@ -181,6 +195,14 @@
   text-align: center;
 }
 
+.modal-content {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+  background-color: #ffcdd2;
+
+}
 .materialize-red {
   background-color: #e51c23 !important;
 }
