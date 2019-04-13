@@ -1,0 +1,135 @@
+{{> Navigation/nav-block dashboard=true create=false account=false signup=false}}
+<br>
+<main class="no-padding no-pad-top taskmain">
+
+  <div class="container start-splash-container row">
+    <div class="topheader-dash red lighten-4">Kids! Show your parents what you finished!</div>
+
+
+    <div class="row">
+      <div class="col s12 m5 l5 tasklist-todo">
+        <ul id="todo_list">
+          <div class="taskheaders">TO DO</div>
+        {{#each todos}}
+          <div id="container-button">
+          <li><form method="post" action="/task-complete/{{id}}">{{task}}
+          <br>
+          <button type="submit" class="buttons">
+
+            <!--complete-->
+
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+          width="40" height="40"
+          viewBox="0 0 192 192"
+          style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M8.19375,106.55625l13.33125,-13.33125l42.61875,42.6l106.33125,-106.33125l13.33125,13.35l-119.6625,119.6625z" fill="#f37e98"></path><path d="M170.475,32.8875l9.9375,9.95625l-116.26875,116.26875l-52.55625,-52.55625l9.9375,-9.9375l39.225,39.20625l3.39375,3.39375l106.33125,-106.33125M170.475,26.1l-106.33125,106.33125l-42.6,-42.6l-16.74375,16.725l59.34375,59.34375l123.05625,-123.05625z" fill="#000000"></path></g></g></g></svg>
+
+
+          </button></form>
+          {{!-- <form method="post" action="/task-delete/{{id}}">
+          <button type="submit" class="buttons">Delete</button></form></li> --}}
+          </div>
+        {{/each}}
+        </ul>
+      </div>
+      <div class="col s0 m2 l2"></div>
+      <div class="col s12 m5 l5 tasklist-completed">
+        <ul id="completed_list">
+          <div class="taskheaders">COMPLETED</div>
+        {{#each completed}}
+          <li>{{task}}</li>
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <div id="gif-container">
+        <h4>You did it!</h4>
+        <img src="{{gif}}" style="max-width: 90%; max-height: 360px;" />
+        <p>Good job completing all your tasks! <button class="btn" id="choose-reward">Choose a reward!</button></p>
+      </div>
+      <div id="reward-container" class="row" style="display:none">
+        <div class="col s12 tasklist">
+        <ul id="reward_list">
+        {{#each rewards}}
+          <li><form method="post" action="/item-chosen/{{id}}">{{item}}
+          <button type="submit" class="btn modal-close">Pick Me</button></form></li>
+        {{/each}}
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  {{!--
+  <div class="container start-splash-container row">
+    <div class="col s12 center-align">
+      <h5 class="createtasks red lighten-4">Complete 6 tasks and choose from these great prizes!</h5>
+       
+        <div class="row">
+      <div class="col s6 tasklist">
+        <ul id="reward_list">
+        {{#each rewards}}
+          <li><form method="post" action="/item-chosen/{{id}}">{{item}}
+          <button type="submit">Pick Me</button></form>
+          <form method="post" action="/item-delete/{{id}}">
+          <button type="submit">Delete</button></form></li>
+        {{/each}}
+        </ul>
+      </div>
+      <div class="col s6 tasklist">
+        <ul id="chosen_list">
+        {{#each chosen}}
+          <li>{{item}}</li>
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+       
+      <!-- <div class="row">
+          <div class="col m4 s12 prizes">
+            Bowl of Ice Cream
+          </div>
+          <div class="col m4 s12 prizes">
+            One hour of TV or video games
+          </div>
+          <div class="col m4 s12 prizes">
+            Ride bike for an hour
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m4 s12 prizes">
+            Go to the playground
+          </div>
+          <div class="col m4 s12 prizes">
+            Visit the Science Museum
+          </div>
+          <div class="col m4 s12 prizes">
+            Sit outside and play with sticks
+          </div>
+        </div>-->
+    </div>
+  </div>
+    --}}
+</main>
+
+<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $(".sidenav").sidenav();
+        $(".modal").modal();
+        {{#if rewards}}
+        $(".modal").modal('open');
+        {{/if}}
+
+        $("#choose-reward").click(function(e) {
+          e.preventDefault();
+          $("#gif-container").hide();
+          $("#reward-container").show();
+        })
+    });
+  </script>

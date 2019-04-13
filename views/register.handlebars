@@ -1,0 +1,61 @@
+<body style="background:#f19833; !important">
+    <div id="container-register">
+        <div id="title">
+            <img id="chores" src="assets/images/chores.jpg" width="600" />
+            <br>
+            <i id="lockstyle" class="material-icons" style="color:white; font-size:100px;">lock</i>
+            <img id="registerlogo" src="/assets/images/register.png" width="400" />
+            <i id="lockstyle" class="material-icons" style="color:white; font-size:100px;">lock</i>
+        </div>
+        <div id="whitearea">
+        <p>
+            Register here to get started!
+        </p>
+        <!--add error message when user tries to create an account with an an email address that's already been used-->
+        {{#if errors}}
+        <div>
+            {{#each errors}}
+            <div>{{this}}</div>
+            {{/each}}
+        </div>
+        {{/if}}
+
+        <form method="POST" action="/register">
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">email</i>
+                </div>
+                <input id="email" name="email" placeholder="Email" type="email" required class="validate"
+                    autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" name="username" placeholder="Kid's Name" type="text" required class="validate"
+                    autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" name="password" placeholder="Password" type="password" required class="validate"
+                    autocomplete="off">
+            </div>
+            <br>
+            <input type="submit" value="Register" />
+        </form>
+
+        <div class="register">
+            <span style="color: #657575; font-size:25px; padding-right:10px;">Already have an account?</span>
+            <a href="login"><button id="register-link">Log In here</button></a>
+        </div>
+        </div>
+    </div>
+</body>
