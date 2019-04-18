@@ -5,8 +5,6 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint **/*.js --quiet",
-    "fix": "eslint --fix .",
     "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "license": "ISC",
@@ -19,6 +17,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "express-session": "^1.15.6",
+    "heroku": "^7.22.9",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
     "passport": "^0.4.0",
@@ -30,9 +29,6 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
   },
@@ -41,12 +37,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SonjaRasmussen/project_2.git"
+    "url": "git+https://github.com/dericson87/planhub.git"
   },
   "keywords": [],
   "author": "",
   "bugs": {
-    "url": "https://github.com/SonjaRasmussen/project_2/issues"
+    "url": "https://github.com/dericson87/planhub"
   },
-  "homepage": "https://github.com/SonjaRasmussen/project_2#readme"
+  "homepage": "https://github.com/dericson87/planhub"
 }
